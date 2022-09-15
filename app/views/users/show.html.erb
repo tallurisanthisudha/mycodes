@@ -1,0 +1,8 @@
+<%= @user.email %>
+
+<%= render 'users/follower_count', user: @user%>
+<div><%= @user.followees.count %> following</div>
+
+
+<%= render 'users/follow_button', user: @user %>
+

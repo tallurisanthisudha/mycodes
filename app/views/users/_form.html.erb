@@ -1,0 +1,77 @@
+<div class="form">
+<%= form_with model: @user do |form|  %>
+    <div>
+      <%= form.label :first_name %><br>
+      <%= form.text_field :first_name %><br>
+      <% @user.errors.full_messages_for(:first_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+
+    <div>
+      <%= form.label :last_name %><br>
+      <%= form.text_field :last_name %><br>
+      <% @user.errors.full_messages_for(:last_name).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  
+    <div>
+    <%= form.label :username %><br>
+    <%= form.text_field :username %><br>
+    <% @user.errors.full_messages_for(:username).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    </div>
+
+    <div>
+    <%= form.label :mobile_number %><br>
+    <%= form.text_field :mobile_number %><br>
+    <% @user.errors.full_messages_for(:mobile_number).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    </div>
+
+    <div>
+    <%= form.label :gender %><br>
+    <%= form.select :gender, ['Male', 'Female'] %></br>
+    <% @user.errors.full_messages_for(:gender).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+    </div>
+
+    <div>
+    <%= form.label :date_of_birth %><br>
+    <%= form.date_field :date_of_birth %></br>
+    <% @user.errors.full_messages_for(:date_of_birth).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+    </div>
+
+    <div class="field">
+    <%= form.label :email %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+
+  <div class="actions">
+  <%= form.submit "Sign up" %>
+</div>
+<% end %>
+    
+  
+  </div>
